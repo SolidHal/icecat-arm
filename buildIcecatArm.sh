@@ -5,8 +5,19 @@ ROOT_DIR=`pwd`
 
 VER=52.6.0
 
+bchroot=$(mktemp -d -p `pwd`)
+
+debootstrap --arch=amd64 --variant=buildd stretch $bchroot
+chroot $bchroot
+mount -t proc proc /proc
+chroot $bchroot dpkg --add-architecture armhf
+chroot $bchroot apt update
+
+#Setup source for building
+#Cd into source in chroot, then run dpkg-buildpackage -us -uc -b --host-arch armhf?
+
 # Get prereqs
-apt-get build-dep -y firefox-esr
+apt-get build-dep -a armhf -y firefox-esr
 #wget -O bootstrap.py https://hg.mozilla.org/mozilla-central/raw-file/default/python/mozboot/bin/bootstrap.py && python bootstrap.py
 
 #get source, and setup dirs
