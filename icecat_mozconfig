@@ -1,0 +1,57 @@
+
+### WARNING: the following lines should NOT be changed
+## Mozilla requires Python2 (python3 will NOT work - see: Linux_Prerequisites)
+mk_add_options PYTHON=/usr/bin/python2
+
+### WARNING: the following lines should NOT be changed
+### (from:  . "$topsrcdir/build/mozconfig.common")
+mk_add_options AUTOCLOBBER=1
+ac_add_options --enable-release
+ac_add_options --enable-js-shell
+ac_add_options --disable-eme
+
+### WARNING: the following lines should NOT be changed
+### (from:  . "$topsrcdir/src/browser/config/mozconfig")
+## application to build
+ac_add_options --enable-application=browser
+
+### WARNING: the following one should be comment out if not using ccache
+## build using ccache
+## ac_add_options --with-ccache
+
+### WARNING: the following lines should NOT be changed
+## build using an objdir (to keep sources clean)
+mk_add_options MOZ_OBJDIR=$topsrcdir/../obj
+## path: sources for locales
+ac_add_options --with-l10n-base=$topsrcdir/l10n
+## path: system install dir
+ac_add_options --prefix=/usr
+
+### WARNING: the following lines should NOT be changed
+## build with optimization
+ac_add_options --enable-optimize="-pipe -O2"
+## default toolkit
+ac_add_options --enable-default-toolkit=cairo-gtk2
+
+### WARNING: the following lines should NOT be changed
+## branding
+ac_add_options --enable-official-branding
+ac_add_options --with-distribution-id=org.gnu 
+## enable support for user|portable fonts on desktop platforms (put your fonts 
+## to dir browser/fonts, then you can select them in the font preferences)
+ac_add_options --enable-bundled-fonts
+
+### RECOMMENDED: NOT NECESSARY AND/OR PRIVACY RELATED STUFF
+
+## disable geolocation services
+## ac_add_options --disable-necko-wifi
+## ac_add_options --disable-gpsd
+
+## disable unwanted options 
+ac_add_options --disable-debug
+ac_add_options --disable-debug-symbols
+ac_add_options --disable-tests 
+ac_add_options --disable-crashreporter 
+ac_add_options --disable-updater 
+ac_add_options --disable-maintenance-service
+ac_add_options --disable-parental-controls
