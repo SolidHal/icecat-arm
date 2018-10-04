@@ -33,12 +33,12 @@ cd obj
 #mkdir -p ../icecat-$VER/browser/branding/unofficial/
 #touch ../icecat-$VER/browser/branding/unofficial/moz.build
 #copy over the branding
-cp -r ../icecat-$VER/browser/branding/official ../icecat-$VER/browser/branding/unofficial
+# cp -r ../icecat-$VER/browser/branding/official ../icecat-$VER/browser/branding/unofficial
 
 ../icecat-$VER/configure
 #make -j $(nproc) -f ../icecat-$VER/client.mk
 read ""
-make -f ../icecat-$VER/client.mk 2>&1 | tee ../make_log.txt
+make -j $(nproc) -f ../icecat-$VER/client.mk 2>&1 | tee ../make_log.txt
 
 #Copy over some things
 #cp ../icecat-$VER/browser/branding/official/pref/icecat-branding.js dist/bin/browser/defaults/preferences/icecat-branding.js
