@@ -1,0 +1,33 @@
+diff --git a/build/moz.configure/toolchain.configure b/build/moz.configure/toolchain.configure
+index 15bc045..9d7bef5 100644
+--- a/toolchain.configure_stock
++++ b/toolchain.configure
+@@ -340,6 +340,10 @@ def check_compiler(compiler, language, target):
+     if info.language == 'C' and info.language_version != 199901:
+         if info.type in ('clang-cl', 'clang', 'gcc'):
+             append_flag('-std=gnu99')
++            append_flag('-fno-lifetime-dse')
++            append_flag('-fno-delete-null-pointer-checks')
++            append_flag('-fno-schedule-insns')
++
+ 
+     # Note: MSVC, while supporting C++11, still reports 199711L for __cplusplus.
+     # Note: this is a strict version check because we used to always add
+@@ -347,11 +351,17 @@ def check_compiler(compiler, language, target):
+     if info.language == 'C++':
+         if info.type in ('clang', 'gcc') and info.language_version != 201103:
+             append_flag('-std=gnu++11')
++            append_flag('-fno-lifetime-dse')
++            append_flag('-fno-delete-null-pointer-checks')
++            append_flag('-fno-schedule-insns')
+ 
+         # MSVC 2015 headers include C++14 features, but don't guard them
+         # with appropriate checks.
+         if info.type == 'clang-cl' and info.language_version != 201402:
+             append_flag('-std=c++14')
++            append_flag('-fno-lifetime-dse')
++            append_flag('-fno-delete-null-pointer-checks')
++            append_flag('-fno-schedule-insns')
+ 
+     # We force clang-cl to emulate Visual C++ 2015 Update 3 with fallback to
+     # cl.exe.

@@ -24,6 +24,8 @@ cd icecat
 
 [ ! -f icecat-$VER/mozconfig ] && cp $BASEDIR/icecat_mozconfig icecat-$VER/mozconfig
 
+cd icecat-$VER/
+patch -p1 < $BASEDIR/armhf_toolchain.patch
 
 [ ! -d obj ] && mkdir obj
 cd obj
@@ -35,6 +37,7 @@ cp -r ../icecat-$VER/browser/branding/official ../icecat-$VER/browser/branding/u
 
 ../icecat-$VER/configure
 #make -j $(nproc) -f ../icecat-$VER/client.mk
+read ""
 make -f ../icecat-$VER/client.mk 2>&1 | tee ../make_log.txt
 
 #Copy over some things
