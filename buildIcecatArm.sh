@@ -10,6 +10,7 @@ bchroot=ice_chroot
 cd build
 [ ! -d $bchroot ] && qemu-debootstrap --arch=armhf --variant=buildd stretch $bchroot http://deb.debian.org/debian
 
+cp ../armhf_toolchain.patch $bchroot/armhf_toolchain.patch
 cp ../icecat_mozconfig $bchroot/icecat_mozconfig
 #Run a script in the chroot
 cp ../nativeBuildIcecat.sh $bchroot/nativeBuildIcecat.sh
