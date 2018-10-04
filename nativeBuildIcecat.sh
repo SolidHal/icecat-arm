@@ -4,13 +4,13 @@
 
 
 VER=52.6.0
-BASEDIR='pwd'
+BASEDIR=`pwd`
 
 [ ! -d build ] && mkdir build
 cd build
 
 apt install -y autoconf2.13
-apt install -y perl make libgtk2.0-dev libgtk-3-dev libxt-dev libidl-dev libx11-xcb-dev zip libfreetype6-dev fontconfig libgstreamer1.0-dev libgstreamer-plugins-base1.0-dev pkg-config libdbus-glib-1-dev libasound2-dev libpulse-dev libasound2-dev libnotify-dev yasm libpython2.7-dev python2.7 python2.7-dev autoconf2.13 m4 binutils-avr libgl1-mesa-dev  libpango-1.0-0 libpangoxft-1.0-0 ibpangoft2-1.0-0 libfreetype6 libxft2 libgtk2.0-0 libx11-6 python-virtualenv python-pip lbzip2 libicu-dev gconf2 gir1.2-gconf-2.0 libgconf2-dev gconf2-common libgconf-2-4 libgconf2.0-cil libgconf2.0-cil-dev pkg-config
+apt install -y perl make libgtk2.0-dev libgtk-3-dev libxt-dev libidl-dev libx11-xcb-dev zip libfreetype6-dev fontconfig libgstreamer1.0-dev libgstreamer-plugins-base1.0-dev pkg-config libdbus-glib-1-dev libasound2-dev libpulse-dev libasound2-dev libnotify-dev yasm libpython2.7-dev python2.7 python2.7-dev autoconf2.13 m4 binutils-avr libgl1-mesa-dev  libpango-1.0-0 libpangoxft-1.0-0 ibpangoft2-1.0-0 libfreetype6 libxft2 libgtk2.0-0 libx11-6 python-virtualenv python-pip lbzip2 libicu-dev gconf2 gir1.2-gconf-2.0 libgconf2-dev gconf2-common libgconf-2-4 libgconf2.0-cil libgconf2.0-cil-dev pkg-config wget
 
 apt-get build-dep -y firefox-esr
 
