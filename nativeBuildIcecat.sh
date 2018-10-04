@@ -26,6 +26,7 @@ cd icecat
 
 cd icecat-$VER/
 patch -p1 < $BASEDIR/armhf_toolchain.patch
+cd ..
 
 [ ! -d obj ] && mkdir obj
 cd obj
