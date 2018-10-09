@@ -13,3 +13,6 @@ a compressed binary will then be available at build/installer
 if cross compiling, run crossBuildInstaller.sh and find the compressed binary package in build/installer
 
 This step takes only a couple of minutes
+
+
+### If building natively, if you create a swap make sure to remove it afterwords. It can lead to long term instability, and possibly some short term stability issues. 
