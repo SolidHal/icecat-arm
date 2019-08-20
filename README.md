@@ -1,5 +1,10 @@
 ## GNU icecat  arm hf cross compile scripts
 
+
+### Dependencies
+most of the build dependencies are grabbed by the scripts automatically if you're building on debian, but you will have to install wget yourself before running them
+`sudo apt install wget`
+
 To build icecat for armhf either run nativeBuildIcecat.sh if building on an armhf machine, or if crosscompiling on an x86-64 machine run crossBuildIcecatArm.sh
 
 When building natively, I found 4GB of RAM to be too little and needed to create a 4GB swap file. Plenty of instructions online can be found to do this. 
